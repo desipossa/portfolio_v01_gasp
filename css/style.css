@@ -6,8 +6,8 @@
     --white-color: #FFFFFF;
 }
 
-.fp-watermark {
-    display: none;
+.wrapper {
+    overflow: hidden;
 }
 
 .cursor {
@@ -83,7 +83,11 @@ body {
     height: 100%;
 }
 
-
+.mainVisal {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
 
 .mainVisal .path {
     position: absolute;
@@ -229,8 +233,29 @@ body {
 }
 
 
+.portfolio {
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+
 .portfolio .title {
     position: relative;
+}
+
+.portfolio .slide_wrap {
+    flex: 0 0 600%;
+    display: flex;
+}
+
+.portfolio .slide_wrap>* {
+    flex: 0 0 calc(100% / 6);
+}
+
+.portfolio .slide_wrap .con {
+    background: #fff url(../images/patten01.png);
 }
 
 .profile .ctxt {
@@ -254,6 +279,11 @@ body {
     100% {
         transform: rotate(360deg);
     }
+}
+
+.portfolio .title {
+    display: flex;
+    align-items: center;
 }
 
 .portfolio .title .corg1 {
@@ -294,6 +324,14 @@ body {
 .portfolio .tit h3 {
     font-size: 10rem;
     font-weight: 900;
+    margin: 0 0 3.2rem 0;
+    text-transform: uppercase;
+}
+
+.portfolio .tit strong {
+    display: block;
+    font-size: 3rem;
+    font-weight: 700;
     margin: 0 0 3.2rem 0;
     text-transform: uppercase;
 }
@@ -466,6 +504,7 @@ body {
 
 
 .profile {
+    height: 100vh;
     position: relative;
     display: flex;
     align-items: center;

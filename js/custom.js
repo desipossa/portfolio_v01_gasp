@@ -1,62 +1,13 @@
 //즉시실행함수
+
 (function () {
-    contentFullpage();
+
+    mainVisualTimeline();
+    portfolioWrapTimeline();
     coverTimeline();
     gnbEvent();
     circleTxt(`.profile .ctxt`);
 })();
-
-//프레임전체 fullpage
-function contentFullpage() {
-    const slideWrap = document.querySelector('.portfolio');
-
-    const f = new fullpage('#content', {
-        anchors: ['intro', 'portfolio', 'profile'],
-        scrollOverflow: false,
-
-        //fullpage slide의 가로스크롤 구현 option
-        controlArrows: false, //슬라이드 화살표 숨김
-        loopHorizontal: false, //슬라이드 반복 멈춤
-
-
-        //메인 애니메이션 재실행.
-        afterRender: () => {
-            mainVisualTimeline();
-        },
-        afterLoad: (origin, destination, direction) => {
-            console.log(destination.index, direction);
-            mouseCursorReset();
-            destination.index === 0 && mouseCursor();
-            destination.index === 2 && mouseCursor();
-            destination.index === 2 && mouseCursor();
-        },
-
-        onLeave: (origin, destination, direction, trigger) => {
-            destination.index === 0 && mainVisualTimeline();
-
-            destination.index === 1 && storyTimeline();
-            destination.index === 2 && profileTimeline();
-
-        },
-
-        onSlideLeave: (section, origin, destination, direction, trigger) => {
-            destination.index && portfolioTimeline(destination.index - 1);
-        }
-    });
-
-    //fullpage slide의 가로스크롤 구현
-    slideWrap.addEventListener("wheel", function (e) {
-        let delta = e.deltaY; // 휠할 때에 deltaY값을 구해옴 100 , -100;
-        //slide index 구해서 인덱스 마다 애니메이션 구해오기
-
-        if (delta < 0) {
-            fullpage_api.moveSlideLeft();
-        }
-        else {
-            fullpage_api.moveSlideRight();
-        }
-    });
-}
 
 
 function coverTimeline() {
@@ -128,6 +79,137 @@ function mainVisualTimeline() {
             //yoyo: true,
             repeat: -1,
         })
+}
+
+
+function portfolioWrapTimeline() {
+
+    const tlw = gsap.timeline();
+
+
+    const wrap = gsap.utils.toArray(".portfolio .slide_wrap .con");
+
+    tlw.from(
+        '.portfolio .title h3', {
+        x: 500,
+        autoAlpha: 0,
+        scrollTrigger: {
+            trigger: '.portfolio .title h3',
+            pin: false,
+            scrub: 1,
+            //snap: directionalSnap(1 / (sections.length - 1)),
+            start: 'top center',
+            end: '300px center',
+            markers: true,
+        }
+    }
+    ).from(
+        '.portfolio .title p', {
+        x: 500,
+        autoAlpha: 0,
+        scrollTrigger: {
+            trigger: '.portfolio .title p',
+            pin: false,
+            scrub: 1,
+            //snap: directionalSnap(1 / (sections.length - 1)),
+            start: '300px center',
+            end: '600px center',
+            markers: true,
+        }
+    }
+    ).from(
+        '.portfolio .title strong', {
+        x: 500,
+        autoAlpha: 0,
+        scrollTrigger: {
+            trigger: '.portfolio .title strong',
+            pin: false,
+            scrub: 1,
+            //snap: directionalSnap(1 / (sections.length - 1)),
+            start: '600px center',
+            end: '900px center',
+            markers: true,
+        }
+    }
+    )
+
+
+    const wm = gsap.to(wrap, {
+        xPercent: -100 * (wrap.length + 1),
+        ease: "none",
+        scrollTrigger: {
+            trigger: '.portfolio',
+            pin: true,
+            scrub: 1,
+            //snap: directionalSnap(1 / (sections.length - 1)),
+            start: 'top top',
+            end: '1400% center'
+        }
+
+    })
+
+    const itmsH = gsap.utils.toArray(".portfolio .slide_wrap .slide .inner .desc h3");
+    const itmsP = gsap.utils.toArray(".portfolio .slide_wrap .slide .inner .desc p");
+    const itmsD = gsap.utils.toArray(".portfolio .slide_wrap .slide .inner .desc .table");
+    const itmsL = gsap.utils.toArray(".portfolio .slide_wrap .slide .inner .desc .link");
+
+    itmsH.forEach((it, idx) => {
+        const mm = gsap.from(it, {
+            x: 200,
+            autoAlpha: 0,
+            scrollTrigger: {
+                trigger: it,
+                containerAnimation: wm,
+                toggleActions: 'restart reverse restart reverse',
+
+            }
+        })
+    });
+
+    itmsP.forEach((it, idx) => {
+        const mm = gsap.from(it, {
+            x: 200,
+            autoAlpha: 0,
+            delay: 0.5,
+            scrollTrigger: {
+                trigger: it,
+                containerAnimation: wm,
+                toggleActions: 'restart reverse restart reverse',
+
+            }
+        })
+    });
+
+    itmsD.forEach((it, idx) => {
+        const mm = gsap.from(it, {
+            x: 200,
+            autoAlpha: 0,
+            delay: 1,
+            scrollTrigger: {
+                trigger: it,
+                containerAnimation: wm,
+                toggleActions: 'restart reverse restart reverse',
+
+            }
+        })
+    });
+
+    itmsL.forEach((it, idx) => {
+        const mm = gsap.from(it, {
+            x: 200,
+            autoAlpha: 0,
+            delay: 1.5,
+            scrollTrigger: {
+                trigger: it,
+                containerAnimation: wm,
+                toggleActions: 'restart reverse restart reverse',
+
+            }
+        })
+    });
+
+
+
 }
 
 function portfolioTimeline(n) {
