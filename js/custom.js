@@ -1,7 +1,6 @@
 //즉시실행함수
 
 (function () {
-
     mainVisualTimeline();
     portfolioWrapTimeline();
     coverTimeline();
@@ -100,7 +99,7 @@ function portfolioWrapTimeline() {
             //snap: directionalSnap(1 / (sections.length - 1)),
             start: 'top center',
             end: '300px center',
-            markers: true,
+            // markers: true,
         }
     }
     ).from(
@@ -114,7 +113,7 @@ function portfolioWrapTimeline() {
             //snap: directionalSnap(1 / (sections.length - 1)),
             start: '300px center',
             end: '600px center',
-            markers: true,
+            //markers: true,
         }
     }
     ).from(
@@ -128,10 +127,20 @@ function portfolioWrapTimeline() {
             //snap: directionalSnap(1 / (sections.length - 1)),
             start: '600px center',
             end: '900px center',
-            markers: true,
+            //markers: true,
         }
     }
-    )
+    ).to(`#itm0x`, {
+        motionPath: {
+            path: `#path0x`,
+            align: `#path0x`,
+            alignOrigin: [0.5, 0.5],
+            autoRotate: true,
+
+        },
+        duration: 10,
+        repeat: -1
+    })
 
 
     const wm = gsap.to(wrap, {
@@ -141,7 +150,7 @@ function portfolioWrapTimeline() {
             trigger: '.portfolio',
             pin: true,
             scrub: 1,
-            //snap: directionalSnap(1 / (sections.length - 1)),
+            snap: 1 / (wrap.length + 1),//scrub: 0일 경우 작동하지 않음
             start: 'top top',
             end: '1400% center'
         }
@@ -152,6 +161,7 @@ function portfolioWrapTimeline() {
     const itmsP = gsap.utils.toArray(".portfolio .slide_wrap .slide .inner .desc p");
     const itmsD = gsap.utils.toArray(".portfolio .slide_wrap .slide .inner .desc .table");
     const itmsL = gsap.utils.toArray(".portfolio .slide_wrap .slide .inner .desc .link");
+    const itmsPH = gsap.utils.toArray(".portfolio .slide_wrap .slide .inner .desc .path");
 
     itmsH.forEach((it, idx) => {
         const mm = gsap.from(it, {
@@ -207,9 +217,6 @@ function portfolioWrapTimeline() {
             }
         })
     });
-
-
-
 }
 
 function portfolioTimeline(n) {
@@ -342,6 +349,13 @@ function circleTxt(txt) {
         `
     })
 }
+
+
+document.querySelector('.totop').addEventListener('click', () => {
+    gsap.to(window, { duration: 2, scrollTo: 0 })
+})
+
+
 
 
 
