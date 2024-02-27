@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2024 lee's portfolio</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/fonts.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hamburgers/1.2.1/hamburgers.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.9/fullpage.css">
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/MotionPathPlugin.min.js"></script>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.39/dist/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.9/fullpage.min.js"></script>
+
+    <style>
+        body {
+            /* background: #e1cca4 url(./images/w.jpg) no-repeat right 100px center/500px; */
+            /* background: radial-gradient(#f7dec3, #e1cca4); */
+
+            border: 2px dashed #fff;
+            background: #c49d62;
+        }
+
+        .mainVisal {
+            background: #c49d62 url(./images/w.jpg) no-repeat fixed right 100px center/500px;
+        }
+
+        .portfolio01 {
+            background: #c49d62 url(./images/w.jpg) no-repeat fixed right 100px center/500px;
+        }
+
+        #content {}
+
+        .section {
+
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mainVisal .title {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .mainVisal .title h2 {
+            font-size: 100px;
+            font-weight: 900;
+            margin: 0 0 32px 0;
+            color: #fff;
+            text-shadow: 0 0 6px rgba(0, 0, 0, 0.25);
+        }
+
+        .mainVisal .title p {
+            font-size: 14px;
+            font-weight: 300;
+            color: #fff;
+            line-height: 1.4;
+            text-transform: uppercase;
+            text-shadow: 0 0 6px rgba(0, 0, 0, 0.25);
+        }
+
+        .path {
+            position: absolute;
+            top: 0;
+            right: 0;
+
+        }
+
+        .path svg {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+        .path svg path {
+            stroke: tomato;
+            stroke-dasharray: 5px 10px;
+        }
+
+        .m {
+            position: fixed;
+            top: -100%;
+            left: -100%;
+        }
+
+        .n img {
+            max-width: 200px;
+        }
+
+        .m>div:nth-child(1) .n {
+            animation: fly 1s infinite;
+        }
+
+        .m>div:nth-child(2) .n {
+            animation: fly 2s infinite;
+        }
+
+        .m>div:nth-child(3) .n {
+            animation: fly 1.5s infinite;
+        }
+
+        .m>div:nth-child(4) .n {
+            animation: fly 3s infinite;
+        }
+
+        .m>div:nth-child(5) .n {
+            animation: fly 2.5s infinite;
+        }
+
+        @keyframes fly {
+            0% {
+                transform: scaleY(0.5);
+            }
+
+            50% {
+                transform: scaleY(0.8);
+            }
+
+            100% {
+                transform: scaleY(0.5);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main id="content">
+        <section class="section mainVisal">
+            <div class="inner">
+                <div class="path">
+                    <svg width="1900" height="1000" viewBox="0 0 1900 1000" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_26_43)">
+                            <path
+                                d="M1148.43 1309.44C1421.1 1268.77 1972.03 1112.24 1994.43 811.441C2022.43 435.441 1190.43 243.441 1064.43 465.441C938.432 687.441 1325.53 1047.44 1636.43 995.441C1947.34 943.441 2008.43 307.441 1858.43 221.441C1738.43 152.641 1515.1 184.774 1418.43 209.441"
+                                stroke="black" id="p01" />
+                            <path
+                                d="M2165.83 1048C1898.49 1142.67 1342.63 1262.8 1257.83 986C1151.83 640 1855.83 686 1993.83 480C2104.23 315.2 1753.16 259.333 1563.83 252"
+                                stroke="black" id="p02" />
+                            <path
+                                d="M1433.56 1110C1289.56 1053.33 1029.16 896 1139.56 720C1249.96 544 1402.89 390.667 1465.56 336"
+                                stroke="black" id="p03" />
+                            <path
+                                d="M1364.48 1110C1243.15 1063.33 1043.68 927.6 1216.48 758C1432.48 546 1740.48 508 1760.48 396C1776.48 306.4 1569.82 162.667 1464.48 102"
+                                stroke="black" id="p04" />
+                            <path
+                                d="M983.662 1132C876.329 1048 736.062 860 1033.66 780C1405.66 680 1453.66 922 1707.66 702C1910.86 526 1696.33 280.667 1563.66 180"
+                                stroke="black" id="p05" />
+                        </g>
+                    </svg>
+                    <div class="m">
+                        <div id="v01">
+                            <div class="n">
+                                <img src="./images/n.png" alt="">
+                            </div>
+                        </div>
+                        <div id="v02">
+                            <div class="n">
+                                <img src="./images/n2.png" alt="">
+                            </div>
+                        </div>
+                        <div id="v03">
+                            <div class="n">
+                                <img src="./images/n3.png" alt="">
+                            </div>
+                        </div>
+                        <div id="v04">
+                            <div class="n">
+                                <img src="./images/n4.png" alt="">
+                            </div>
+                        </div>
+                        <div id="v05">
+                            <div class="n">
+                                <img src="./images/n5.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="title">
+                    <h2>YEWON's Diery</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident,
+                        repellat dolorum. Ducimus,<br />
+                        dolore? Neque harum perspiciatis hic fugiat veritatis! Necessitatibus!</p>
+                </div>
+            </div>
+        </section>
+        <section class="section portfolio01">
+            b
+        </section>
+    </main>
+
+
+
+    <script>
+        new fullpage('#content', {
+            scrollOverflow: false,
+            css3: false,
+            afterLoad: (origin, destination, direction) => {
+                destination.index === 0 && mainVisualTimelime();
+            },
+        });
+
+        function mainVisualTimelime() {
+            const tl = gsap.timeline();
+
+            const fn = document.querySelectorAll('.m>div');
+
+            fn.forEach((navi, num) => {
+                tl.to(`#v0${num + 1}`, {
+                    motionPath: {
+                        path: `#p0${num + 1}`,
+                        align: `#p0${num + 1}`,
+                        alignOrigin: [0.5, 0.5],
+                        autoRotate: true,
+
+                    },
+                    duration: 3,
+                    delay: 0.5 * num,
+                })
+            })
+
+
+
+
+        }
+    </script>
+</body>
+
+</html>
