@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2024 lee's portfolio</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/fonts.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hamburgers/1.2.1/hamburgers.min.css">
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/MotionPathPlugin.min.js"></script>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.39/dist/lenis.min.js"></script>
+
+    <style>
+        .con {
+            border: 1px solid #f00;
+            margin: 0 0 100px 0;
+            overflow: hidden;
+        }
+
+        .con .inner {
+            display: flex;
+            width: 4000px;
+        }
+
+        .con .inner>* {
+            flex: 0 0 50%;
+            position: relative;
+        }
+
+        .con .inner .box {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 1200px;
+        }
+
+        .con01 {
+            background: #111;
+            color: #fff;
+        }
+
+        .slide_wrap {
+            width: 100%;
+            padding: 300px 100px;
+            background: #f00;
+        }
+
+        .con02 {
+            background: #f00;
+        }
+
+        .con02 .box {
+            background: #222;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="con con01">
+        <div class="inner">
+            <div class="box_wrap">
+                <div class="box">
+                    <h2>Lorem ipsum dolor sit.</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi nisi aliquam porro.</p>
+                    <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam dicta qui inventore iste
+                        numquam.</h3>
+                    <h4>Lorem, ipsum.</h4>
+                </div>
+            </div>
+            <div class="slide_wrap">
+                <div class="box">
+                    <h2>Lorem ipsum dolor sit.</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi nisi aliquam porro.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="con con03">
+        <div class="txt">txt02</div>
+        <div class="slide_wrap">
+            <div class="slide">slide01</div>
+            <div class="slide">slide02</div>
+            <div class="slide">slide03</div>
+        </div>
+    </section>
+
+    <script>
+        const tl01 = gsap.timeline({
+            default: {
+                ease: 'none',
+            },
+            scrollTrigger: {
+                trigger: '.con01',
+                pin: true,
+                scrub: 1,
+                markers: true,
+                end: () => '+=' + document.querySelector('.con01').offsetWidth * 3,
+            }
+        });
+        const tl02 = gsap.timeline();
+
+        tl01.from('.con01 .box_wrap .box h2', {
+            x: 500,
+        }).from('.con01 .box_wrap .box p', {
+            x: 500,
+        }).from('.con01 .box_wrap .box h3', {
+            x: 500,
+        }).from('.con01 .box_wrap .box h4', {
+            x: 500,
+        }).to('.con01 .slide_wrap', {
+            xPercent: -100,
+            duration: 2,
+        }).from('.con01 .slide_wrap .box h2', {
+            x: 500,
+            duration: 2,
+        }).from('.con01 .slide_wrap .box p', {
+            x: 500,
+        })
+    </script>
+</body>
+
+</html>

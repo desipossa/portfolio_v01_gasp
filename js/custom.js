@@ -152,7 +152,7 @@ function portfolioWrapTimeline() {
             scrub: 1,
             snap: 1 / (wrap.length + 1),//scrub: 0일 경우 작동하지 않음
             start: 'top top',
-            end: '1400% center'
+            end: () => '+=' + document.querySelector('.portfolio').offsetWidth * 6,
         }
 
     })
