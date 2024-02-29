@@ -195,6 +195,28 @@
         }
 
         .profile {}
+
+        .section.traning {
+            background: #ddd;
+            overflow: hidden;
+        }
+
+        .section.traning .t_wrap {
+            width: 600%;
+            display: flex;
+        }
+
+        .section.traning .t_wrap>* {
+            flex: 0 0 calc(100% / 6);
+
+        }
+
+        .section.traning .t_wrap .tr {
+            background: #ddd;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+        }
     </style>
 </head>
 
@@ -332,6 +354,49 @@
                 </div>
             </div>
         </section>
+
+        <section class="section traning">
+            <div class="in">
+                <div class="t_wrap">
+                    <div class="tr"></div>
+                    <div class="tr tr01">
+                        <h3>title01</h3>
+                        <p>lorem이라고................</p>
+                    </div>
+                    <div class="tr tr02">
+                        <h3>title02</h3>
+                        <p>lorem이라고................</p>
+                    </div>
+                    <div class="tr tr03">
+                        <h3>title03</h3>
+                        <p>lorem이라고................</p>
+                    </div>
+                    <div class="tr tr04">
+                        <h3>title04</h3>
+                        <p>lorem이라고................</p>
+                    </div>
+                    <div class="tr tr05">
+                        <h3>title05</h3>
+                        <p>lorem이라고................</p>
+                    </div>
+                    <div class="tr tr06">
+                        <h3>title06</h3>
+                        <p>lorem이라고................</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <section class="section profile03">
+            <div class="inner">
+                <div class="title">
+                    <h2>AAAAA</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident,
+                        repellat dolorum. Ducimus,<br />
+                        dolore? Neque harum perspiciatis hic fugiat veritatis! Necessitatibus!</p>
+                </div>
+            </div>
+        </section>
     </main>
 
 
@@ -342,6 +407,8 @@
         portfolioTimeline();
         profile01Timeline();
         profile02Timeline();
+        traningTimeline();
+
 
         function mainVisualTimelime() {
             const tl = gsap.timeline();
@@ -360,6 +427,10 @@
                     duration: 3,
                     delay: 0.5 * num,
                 })
+            });
+
+            tl.from('.mainVisal .title h2', {
+                x: 2500,
             })
         }
 
@@ -422,6 +493,31 @@
                 animation: imgAni,
                 scrub: 1
             });
+        }
+
+
+        function traningTimeline() {
+            const itms = gsap.utils.toArray('.traning .tr');
+            const speed = 0.5;
+            const scrllH = document.querySelector('.traning .t_wrap').offsetWidth * speed;
+
+            document.querySelector('.traning').style.height = `calc(${scrllH}px + 100vh)`;
+            itms.forEach((itm, num) => {
+                gsap.to(itm, {
+                    xPercent: -100 * (itms.length - 1),
+                    ease: 'none',
+                    scrollTrigger: {
+                        trigger: itm,
+                        pin: true,
+                        scrub: 1,
+                        start: 'top top',
+                        end: () => `+=${scrllH}`,
+                        markers: true,
+                    }
+                })
+            })
+
+
         }
     </script>
 </body>
